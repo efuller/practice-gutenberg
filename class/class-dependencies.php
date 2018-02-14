@@ -34,9 +34,9 @@ class Dependencies {
 	 */
 	public function hooks() {
 		// Enqueue styles.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_styles' ) );
 		// Enqueue scripts.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
@@ -48,7 +48,7 @@ class Dependencies {
 		wp_enqueue_style(
 			App::get( 'basename' ) . '-style',
 			App::get( 'plugin_url' ) . 'assets/css/main.css',
-			array(),
+			array( 'wp-blocks' ),
 			App::get( 'version' )
 		);
 	}
@@ -62,7 +62,7 @@ class Dependencies {
 		wp_enqueue_script(
 			App::get( 'basename' ) . '-js',
 			App::get( 'plugin_url' ) . 'assets/js/main.js',
-			array( 'jquery' ),
+			array( 'jquery', 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-api' ),
 			App::get( 'version' )
 		);
 	}
