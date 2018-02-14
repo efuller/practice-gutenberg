@@ -1,4 +1,12 @@
 {
   "presets": ["@babel/preset-env"],
-  "plugins": ["@babel/plugin-proposal-object-rest-spread"]
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    [
+      "transform-react-jsx",
+      {
+        "pragma": "wp.element.createElement"
+      }
+    ]
+  ]
 }
