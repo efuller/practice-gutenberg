@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 
-import Input from '../components/input';
-
 class GoogleMapContainer extends Component {
 	componentDidMount() {
-		var uluru = {lat: -25.363, lng: 131.044};
-		var map = new google.maps.Map(this.map, {
+		// Let's just get a map showing!
+		const uluru = {lat: -25.363, lng: 131.044};
+		const map = new google.maps.Map(this.map, {
 			zoom: 4,
 			center: uluru
 		});
-		var marker = new google.maps.Marker({
+		const marker = new google.maps.Marker({
 			position: uluru,
 			map: map
 		});
@@ -19,6 +18,7 @@ class GoogleMapContainer extends Component {
 			height: 300,
 			width: 300
 		};
+
 		return (
 			<div>
 				<h1>Google Map Container</h1>
@@ -26,6 +26,6 @@ class GoogleMapContainer extends Component {
 			</div>
 		);
 	}
-};
+}
 
 export default GoogleMapContainer;
